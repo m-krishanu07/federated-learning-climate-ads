@@ -85,7 +85,9 @@ def federated_training(clients, num_rounds=10):
         # Update global model
         for client in clients:
             client.set_parameters(global_weights)
-Federated Averaging (FedAvg): Combines local models from each client by averaging their weights.
+Federated Averaging (FedAvg):
+Combines local models from each client by averaging their weights.
+
 4. Evaluation
 The model is evaluated after each round of federated learning to track performance:
 
@@ -94,6 +96,7 @@ Copy
 Edit
 accuracy, report, conf_matrix = client.evaluate()
 Evaluation metrics include accuracy, precision, recall, F1-score, and the confusion matrix to measure how well the model is performing.
+
 How to Run
 Clone the repository:
 
@@ -101,33 +104,28 @@ bash
 Copy
 Edit
 git clone https://github.com/m-krishanu07/federated-learning-climate-ads.git  
-cd federated-learning-climate-ads  
+cd federated-learning-climate-ads
 Install dependencies:
 
 bash
 Copy
 Edit
-pip install -r requirements.txt  
-Place your datasets:
-Ensure datasets like train.csv and test.csv are in the same directory as the script.
+pip install -r requirements.txt
+Place your datasets: Ensure datasets like train.csv and test.csv are in the same directory as the script.
 
-Run the Jupyter Notebook:
-Open the Climateobs.ipynb notebook in Jupyter and run each cell to execute the federated learning training and evaluation process.
+Run the Jupyter Notebook: Open the Climateobs.ipynb notebook in Jupyter and run each cell to execute the federated learning training and evaluation process.
 
 Results
-The neural network architecture achieved good performance on the climate advertisement classification task, with high accuracy and robust classification metrics across federated clients.
-Federated learning allowed for decentralized training and ensured that sensitive data remained on local devices.
+The neural network architecture achieved good performance on the climate advertisement classification task, with high accuracy and robust classification metrics across federated clients. Federated learning allowed for decentralized training and ensured that sensitive data remained on local devices.
+
 Why This Matters
 Machine Learning Expertise:
-
 Implemented a deep neural network with ReLU activations and dropout to improve model accuracy and generalization.
 Used TF-IDF for feature extraction and prepared data for training.
 Evaluated the model rigorously with advanced metrics such as F1-score and confusion matrices.
 Federated Learning:
-
 Demonstrated how federated learning can enable distributed training across multiple clients while maintaining data privacy.
 Practical Application:
-
 Applied these machine learning techniques to a real-world task—classifying climate-related ads—showing the project’s relevance to the growing field of data privacy and sustainability.
 Future Work
 Model Improvements: Add advanced techniques such as LSTMs or Transformers for better handling of sequential data.
