@@ -86,7 +86,8 @@ def federated_training(clients, num_rounds=10):
         for client in clients:
             client.set_parameters(global_weights)
 Federated Averaging (FedAvg): Combines local models from each client by averaging their weights.
-4. Evaluation
+
+## 4. Evaluation
 The model is evaluated after each round of federated learning to track performance:
 
 python
@@ -135,3 +136,5 @@ Hyperparameter Tuning: Optimize hyperparameters to improve model performance.
 Scalability: Expand the federated learning setup to support a larger number of clients and datasets.
 Contact
 For any questions or feedback, feel free to reach out via GitHub.
+
+This version strikes a balance between explaining the machine learning concepts (neural networks, TF-IDF, evaluation metrics) and the federated learning framework used, making it more relevant to job applications in ML and AI fields.
