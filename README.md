@@ -38,13 +38,11 @@ Dense Layers: Learn high-level representations from the data.
 ReLU Activation: Efficiently models non-linear relationships in the data.
 Dropout: Reduces overfitting by randomly deactivating neurons during training.
 Softmax Output: Converts raw scores into probabilities for multi-class classification.
-ML Workflow
-1. Data Preprocessing
+## ML Workflow
+ 1. Data Preprocessing
 The text data (e.g., ad_creative_body) is cleaned and vectorized using TF-IDF to convert text into numerical features suitable for neural network input:
 
-python
-Copy
-Edit
+
 def preprocess_text(text):
     text = text.lower()
     text = ''.join(e for e in text if e.isalnum() or e.isspace())
@@ -55,20 +53,16 @@ Copy
 Edit
 global_vectorizer = TfidfVectorizer(stop_words='english')
 global_vectorizer.fit(all_text)
-2. Training the Neural Network
+## 2. Training the Neural Network
 The neural network is trained on each client's dataset, where the model learns to predict ad typologies from the text. Training is done using the Adam optimizer with sparse categorical cross-entropy loss:
 
-python
-Copy
-Edit
+
 model.compile(optimizer=Adam(learning_rate=1e-3), loss='sparse_categorical_crossentropy', metrics=['accuracy'])
 model.fit(X_train, y_train, epochs=5, batch_size=32, verbose=2)
-3. Federated Learning
+## 3. Federated Learning
 Federated learning is implemented to train the neural network across multiple clients (datasets) without sharing sensitive data:
 
-python
-Copy
-Edit
+
 def federated_training(clients, num_rounds=10):
     global_weights = clients[0].model.get_weights()
     for round_num in range(num_rounds):
@@ -88,37 +82,29 @@ def federated_training(clients, num_rounds=10):
 Federated Averaging (FedAvg):
 Combines local models from each client by averaging their weights.
 
-4. Evaluation
+## 4. Evaluation
 The model is evaluated after each round of federated learning to track performance:
 
-python
-Copy
-Edit
 accuracy, report, conf_matrix = client.evaluate()
 Evaluation metrics include accuracy, precision, recall, F1-score, and the confusion matrix to measure how well the model is performing.
 
-How to Run
+## How to Run
 Clone the repository:
 
-bash
-Copy
-Edit
 git clone https://github.com/m-krishanu07/federated-learning-climate-ads.git  
 cd federated-learning-climate-ads
 Install dependencies:
 
-bash
-Copy
-Edit
+
 pip install -r requirements.txt
 Place your datasets: Ensure datasets like train.csv and test.csv are in the same directory as the script.
 
 Run the Jupyter Notebook: Open the Climateobs.ipynb notebook in Jupyter and run each cell to execute the federated learning training and evaluation process.
 
-Results
+## Results
 The neural network architecture achieved good performance on the climate advertisement classification task, with high accuracy and robust classification metrics across federated clients. Federated learning allowed for decentralized training and ensured that sensitive data remained on local devices.
 
-Why This Matters
+## Why This Matters
 Machine Learning Expertise:
 Implemented a deep neural network with ReLU activations and dropout to improve model accuracy and generalization.
 Used TF-IDF for feature extraction and prepared data for training.
